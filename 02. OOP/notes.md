@@ -59,3 +59,13 @@
         - `private`: All inherited members become private.
     - **Private members of parent class are never inherited.**
         
+- **Polymorphism:** Drived from *poly* (many) + *morph* (form) = many forms.
+    - **Types of polymorphism:**
+        - **Static Polymorphism:**
+            - Also called Method Overloading
+            - Occurs at compile time.
+            - Same method name, different parameters.
+        - **Dynamic Polymorphism:**
+            - Also called Method Overriding.
+            - Occurs ar run time.
+            - Same method signature is redefined in child classes
