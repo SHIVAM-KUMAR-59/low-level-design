@@ -51,3 +51,11 @@
         - **Maintainability:** Internal changes do not ripple into client code.
         - **Clear Contracts:** Clients interact only via well-defined methods.
         - **Modularity:** Code is organized into self-contained units, easing testing and resuse.
+
+- **Inheritence:** Real-world objects are often related in parent-child relationships. In programming, this relationship is mimicked by *inheritence*.
+    - **Access Specifiers in Inheritence:**
+        - `public`: Public members stay public and protected members stay protected.
+        - `protected`: Public and protected members become protected.
+        - `private`: All inherited members become private.
+    - **Private members of parent class are never inherited.**
+        
