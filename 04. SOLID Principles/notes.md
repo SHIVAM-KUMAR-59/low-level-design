@@ -1,19 +1,12 @@
 # SOLID Principles
 
 ## Table of Contents
-- [**Issues that occur from not following SOLID Principles**](#issues-that-occur-from-not-following-solid-principles)
 - [**Introduction**](#introduction)
+- [**Issues that occur from not following SOLID Principles**](#issues-that-occur-from-not-following-solid-principles)
 - [**Single Responsibility Principle (SRP)**](#single-responsibility-principle-srp)
 - [**Liskov's Substitution Principle (LSP)**](#liskovs-substitution-principle-lsp)
 - [**Interface Segregation Principle (ISP)**](#interface-segregation-principle-isp)
 - [**Dependency Inversion Principle (DIP)**](#dependency-inversion-principle-dip)
-
----
-
-### Issues that occur from not following SOLID Principles
-- **Maintainability:** The application becomes difficult to locate bugs and do changes without affecting existing code.
-- **Readability:** It becomes difficult to read and understand the purpose/behaviour of a class or method.
-- **Bugs:** A large number of bugs can come up while building big applications which are hard to debug.
 
 ---
 
@@ -26,6 +19,13 @@
     - *Interface Segregation Principle (ISP)*
     - *Dependency Inversion Principle (DIP)*
 We will study about each of them individually in detail.
+
+---
+
+### Issues that occur from not following SOLID Principles
+- **Maintainability:** The application becomes difficult to locate bugs and do changes without affecting existing code.
+- **Readability:** It becomes difficult to read and understand the purpose/behaviour of a class or method.
+- **Bugs:** A large number of bugs can come up while building big applications which are hard to debug.
 
 ---
 
