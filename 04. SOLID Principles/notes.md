@@ -41,3 +41,27 @@ We will study about each of them individually in detail.
         }
     }
 ```
+
+---
+
+### Open-Closed Principle (OCP)
+- A class should be open for extention but closed for modification.
+- Extention means adding new feature and modification means changing old code/methods.
+```java
+// OCP - Open/Closed Principle: Extend, don’t modify
+interface Shape {
+    double area();
+}
+
+class Rectangle implements Shape {
+    public double area() {
+        return 10 * 5;
+    }
+}
+
+class AreaCalculator {
+    double calculate(Shape shape) {
+        return shape.area();
+    }
+}
+```
