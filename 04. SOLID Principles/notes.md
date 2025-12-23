@@ -5,6 +5,8 @@
 - [**Introduction**](#introduction)
 - [**Single Responsibility Principle (SRP)**](#single-responsibility-principle-srp)
 - [**Liskov's Substitution Principle (LSP)**](#liskovs-substitution-principle-lsp)
+- [**Interface Segregation Principle (ISP)**](#interface-segregation-principle-isp)
+- [**Dependency Inversion Principle (DIP)**](#dependency-inversion-principle-dip)
 
 ---
 
@@ -72,7 +74,7 @@ class AreaCalculator {
 ### Liskov's Substitution Principle (LSP)
 - Subclasses should be substitutable for their base classes.
 ```java
-// LSP - Liskov Substitution Principle: Child can replace parent safely
+// LSP - Liskov Substitution Principle: Child (subclass) can replace parent (base class) safely
 class Vehicle {
     int speed() {
         return 60;
@@ -82,6 +84,46 @@ class Vehicle {
 class Car extends Vehicle {
     int speed() {
         return 80;
+    }
+}
+```
+
+---
+
+### Interface Segregation Principle (ISP)
+- Many client specific interfaces are better than one general interface.
+- Client should not be forced to implement the features they don't need.
+```java
+// ISP - Interface Segregation Principle: Small interfaces
+interface Printer {
+    void print();
+}
+
+interface Scanner {
+    void scan();
+}
+
+class AllInOnePrinter implements Printer, Scanner {
+    public void print() {}
+    public void scan() {}
+}
+```
+
+---
+
+### Dependency Inversion Principle (DIP)
+
+```java
+// DIP - Dependency Inversion Principle: Depend on abstraction
+interface Keyboard {}
+
+class MechanicalKeyboard implements Keyboard {}
+
+class Computer {
+    private Keyboard keyboard;
+
+    Computer(Keyboard keyboard) {
+        this.keyboard = keyboard;
     }
 }
 ```
