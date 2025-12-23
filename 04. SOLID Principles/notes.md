@@ -112,7 +112,7 @@ class AllInOnePrinter implements Printer, Scanner {
 ---
 
 ### Dependency Inversion Principle (DIP)
-
+- High level modules should not depend on low level module, but rather, both should depend on abstaction or interfaces.
 ```java
 // DIP - Dependency Inversion Principle: Depend on abstraction
 interface Keyboard {}
