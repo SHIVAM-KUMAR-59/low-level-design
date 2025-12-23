@@ -4,6 +4,7 @@
 - [**Issues that occur from not following SOLID Principles**](#issues-that-occur-from-not-following-solid-principles)
 - [**Introduction**](#introduction)
 - [**Single Responsibility Principle (SRP)**](#single-responsibility-principle-srp)
+- [**Liskov's Substitution Principle (LSP)**](#liskovs-substitution-principle-lsp)
 
 ---
 
@@ -62,6 +63,25 @@ class Rectangle implements Shape {
 class AreaCalculator {
     double calculate(Shape shape) {
         return shape.area();
+    }
+}
+```
+
+---
+
+### Liskov's Substitution Principle (LSP)
+- Subclasses should be substitutable for their base classes.
+```java
+// LSP - Liskov Substitution Principle: Child can replace parent safely
+class Vehicle {
+    int speed() {
+        return 60;
+    }
+}
+
+class Car extends Vehicle {
+    int speed() {
+        return 80;
     }
 }
 ```
