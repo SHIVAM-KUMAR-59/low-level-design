@@ -4,6 +4,7 @@
 - [**Introduction**](#introduction)
 - [**Ways to approach a System design Question**](#ways-to-approach-a-system-design-question)
 - [**Bad Design Approach**](#bad-design-approach)
+- [**Better Design Approach**](#better-design-approach)
 
 ---
 
@@ -30,3 +31,16 @@
 ### Better Design Approach
 - Create separate classes and abstract classes based upon requirements and responsibilities.
 ![Diagram Preview](GoodDesign.png)
+- **How this design follows SOLID Principles:**
+    - *SCP:* Each class handle only one responsibility thus it follows SCP.
+    - *OCP:* We can add new elements without changing anything in existing classes, thus it follows OCP.
+    - *LSP:* The subclasses are replacable to parent classes, thus following LSP.
+    - *ISP:* No class is implementing any method they don't need, thus it follows ISP.
+    - *DIP:* No high level module is directly interacting to low level module, they interact via interface, thus following DIP.
+
+- **Flaws in the current design:**
+    - The `DocumentEditor` class has knowledge of the methods present in other classes, so if we remove a method from some other class, we might also have to remove that method form the `DocumentEditor` class, thus it may violate *LSP*.
+![Diagram Preview](Best.png)
+
+- **Principle of Least Knowledge**
+    - A class should have only those objects or call only those methods which are directly connected to it.
