@@ -34,4 +34,3 @@
     - Create interfaces for the rest like `Talkable`, `Walkable`, `Flyable` having `talk()`, `walk()` and `fly()` methods respectively.
     - Now, we can create different concrete classes implementing these interfaces which have the different kinds of implementations of the methods.
     - We can have the references to these interfaces in our main `Robot` class. This class is also called **client** and the different types of heirarchies are called **stratergies**.
----
