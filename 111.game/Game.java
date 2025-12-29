@@ -13,6 +13,16 @@ class Player extends Entity {
     public Player(int x, int y) {
         super(x, y);
     }
+
+    public void move (int x, int y) {
+        if (x < 0 || x >= 4 || y < 0 || y >= 4) {
+            System.out.println("Invalid move. Try again.");
+            return;
+        }else {
+            this.x = x;
+            this.y = y;
+        }
+    }
 }
 
 class Wumpus extends Entity {
@@ -167,7 +177,120 @@ public class Game {
         }
     }
 
+    private void moveToCoordinates(String move) {
+        int oldX = player.x;
+        int oldY = player.y;
+
+        int newX = oldX;
+        int newY = oldY;
+
+        switch (move.toLowerCase()) {
+            case "left":
+                newY--;
+                break;
+            case "right":
+                newY++;
+                break;
+            case "up":
+                newX--;
+                break;
+            case "down":
+                newX++;
+                break;
+            default:
+                System.out.println("Invalid move");
+                return;
+        }
+
+        if (!isValid(newX, newY)) {
+            System.out.println("You went out of the boundaries !!!");
+            return;
+        }
+
+        /* REMOVE player from old cell */
+        board[oldX][oldY].contents.remove("Player");
+        if (board[oldX][oldY].contents.isEmpty()) {
+            board[oldX][oldY].contents.add("Empty");
+        }
+
+        /* UPDATE player position */
+        player.x = newX;
+        player.y = newY;
+
+        /* ADD player to new cell */
+        board[newX][newY].add("Player");
+    }
+
+    private boolean isSafe () {
+        Set<String> effects = board[player.x][player.y].contents;
+        if (effects.contains("Wumpus")) {
+            System.out.println("There is a Wumpus here !!!");
+            return false;
+        }else if (effects.contains("Pit")) {
+            System.out.println("There is a Pit here !!!");
+            return false;
+        }
+        return true;
+    }
+
+    private void checkSurrounding () {
+        Set<String> effects = board[player.x][player.y].contents;
+        if (effects.contains("Stench") && !effects.contains("Breeze")) {
+            System.out.println("There is a Stench here (Wumpus nearby) !!!");
+            return;
+        } else if (effects.contains("Breeze") && !effects.contains("Stench")) {
+            System.out.println("There is a Breeze here (Pit nearby) !!!");
+            return;
+        } else if (effects.contains("Breeze") && effects.contains("Stench")) {
+            System.out.println("There is a Breeze and a Stench here (Wumpus and Pit nearby) !!!");
+            return;
+        }
+    }
+
+    private boolean checkGoldFound () {
+        Set<String> effects = board[player.x][player.y].contents;
+        if (effects.contains("Gold") && !gold.found) {
+            gold.found = true;
+            effects.remove("Gold");
+            if (effects.isEmpty()) {
+                effects.add("Empty");
+            }
+            return true;
+        }
+        return false;
+    }
+
+    private boolean checkWin () {
+        if (this.player.x == 0 && this.player.y == 0 && this.gold.found == true) {
+            return true;
+        }
+        return false;
+    }
+
+    public void play() {
+        Scanner sc = new Scanner(System.in);
+        while(true) {
+            System.out.println("Enter your move: ");
+            String move = sc.nextLine();
+            moveToCoordinates(move);
+            printBoard();
+            if (!isSafe()) {
+                System.out.println("You are dead !!! Game Over!");
+                break;
+            }
+            if (checkGoldFound()) {
+                System.out.println("You found the gold !!! Get to the starting point to finish!");
+            }
+            checkSurrounding();
+            if (checkWin()) {
+                System.out.println("You won the game !!!");
+                break;
+            }
+        }
+    }
+
     public static void main(String[] args) {
-        new Game();
+        Game game = new Game();
+        game.play();
     }
 }
