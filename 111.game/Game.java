@@ -267,11 +267,32 @@ public class Game {
         return false;
     }
 
+    private void printRules () {
+        System.out.println();
+        System.out.println("\n========== WUMPUS WORLD RULES ==========\n");
+        System.out.println("1. There is a Wumpus in one of the cells");
+        System.out.println("2. There is a Pit in three of the cells");
+        System.out.println("3. There is a Gold in one of the cells");
+        System.out.println("4. The cells surrounding the Wumpus have a Stench");
+        System.out.println("5. The cells surrounding the Pit have a Breeze");
+        System.out.println();
+        System.out.println("\n========== HOW TO PLAY ==========\n");
+        System.out.println("1. Enter the direction (up/down/left/right) in which you want to move");
+        System.out.println("2. If you find a Wumpus or a Pit, you will be dead");
+        System.out.println("3. If you find the gold, you will be able to move to the starting point to finish the game");
+        System.out.println("4. If you want to quit the game, type 'quit'");
+    }
+
     public void play() {
         Scanner sc = new Scanner(System.in);
+        printRules();
         while(true) {
             System.out.println("Enter your move: ");
             String move = sc.nextLine();
+            if (move.equals("quit")) {
+                System.out.println("Game Over!");
+                break;
+            }
             moveToCoordinates(move);
             printBoard();
             if (!isSafe()) {
@@ -287,6 +308,7 @@ public class Game {
                 break;
             }
         }
+        sc.close();
     }
 
     public static void main(String[] args) {
