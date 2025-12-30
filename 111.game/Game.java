@@ -327,7 +327,7 @@ public class Game {
         executePath(pathToStart, "BACK TO START");
         
         System.out.println("\n");
-        printBoard();
+        // printBoard();
         
         System.out.println("\nCONGRATULATIONS!");
         System.out.println("You successfully found the gold and returned safely!");
