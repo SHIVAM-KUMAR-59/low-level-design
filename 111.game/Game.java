@@ -1,3 +1,5 @@
+// Wumpus world game
+
 import java.util.*;
 
 class Entity {
