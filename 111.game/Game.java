@@ -1,4 +1,4 @@
-// Wumpus world game java code
+
 
 import java.util.*;
 
