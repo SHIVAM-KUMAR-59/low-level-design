@@ -5,7 +5,7 @@ interface ISubscriber {
     void update();
 }
 
-// Observable interface: a YouTube channel interface
+// Observable interface: YouTube channel interface
 interface IChannel {
     void subscribe(ISubscriber subscriber);
     void unsubscribe(ISubscriber subscriber);
