@@ -12,7 +12,7 @@ interface IChannel {
     void notifySubscribers();
 }
 
-// Concrete Subject: a YouTube channel that observers can subscribe to
+// Concrete Subject: YouTube channel that observers can subscribe to
 class Channel implements IChannel {
     private List<ISubscriber> subscribers;
     private String name;
